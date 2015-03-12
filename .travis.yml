@@ -4,6 +4,14 @@ addons:
       secure: "oGyvxH9edhQ3RqKZpG1SAMAoLmXtB2M2who7jrpAd193OuvyL2NXfnqCCUgITDPDYgfT2Wa24bHfpl2Nfkvz1R9KTBQ6HcTY+sK+DxTE0YU2T3/izvfUixiwnKmz5vxrxIG49PnswRzJDId1MJRjLSkRX5oY0XeMd8+AHDt4tFQ="
     access_key:
       secure: "N5cRm0UQdHtJBhnA0zehPcB4Ql3JV90rhz+8asygXexIIbivTPLaMfnBMisttsq6vqJlqC/B6b6Z6v8njUF/5hIpYaVBv+8eR+jEhb1+maqagRmPWo+aPQbTEgMQ9+7okkh5IH+HmA1u26F+DftIRkN1Gjr22NGZYvYEHgYx32s="
+
+before_script:
+  - "export DISPLAY=:99.0"
+  - "sh -e /etc/init.d/xvfb start"
+  - sleep 3 # give xvfb some time to start
+  - rackup  # start a Web server
+  - sleep 3 # give Web server some time to bind to sockets, etc
+
 language: python
 python:
   - "3.3"
