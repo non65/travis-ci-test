@@ -1,0 +1,15 @@
+addons:
+  sauce_connect:
+    username:
+      secure: "oGyvxH9edhQ3RqKZpG1SAMAoLmXtB2M2who7jrpAd193OuvyL2NXfnqCCUgITDPDYgfT2Wa24bHfpl2Nfkvz1R9KTBQ6HcTY+sK+DxTE0YU2T3/izvfUixiwnKmz5vxrxIG49PnswRzJDId1MJRjLSkRX5oY0XeMd8+AHDt4tFQ="
+    access_key:
+      secure: "N5cRm0UQdHtJBhnA0zehPcB4Ql3JV90rhz+8asygXexIIbivTPLaMfnBMisttsq6vqJlqC/B6b6Z6v8njUF/5hIpYaVBv+8eR+jEhb1+maqagRmPWo+aPQbTEgMQ9+7okkh5IH+HmA1u26F+DftIRkN1Gjr22NGZYvYEHgYx32s="
+language: python
+python:
+  - "3.3"
+  - "2.7"
+  - "2.6"
+# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+install: "pip install selenium"
+# command to run tests, e.g. python setup.py test
+script:  "test.py"
