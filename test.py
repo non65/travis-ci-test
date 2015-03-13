@@ -43,4 +43,4 @@ finally:
 
 # Report test results back to Sauce Labs
 sauce_client = SauceClient("betweenbrain", "e2007f7b-afd4-43a3-af7f-c5087c82199a")
-sauce_client.jobs.update_job(driver.session_id, passed=True, name=os.environ['TRAVIS_PULL_REQUEST'])
+sauce_client.jobs.update_job(driver.session_id, passed=True, name=os.environ["TRAVIS_BUILD_NUMBER"])
