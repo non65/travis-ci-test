@@ -5,6 +5,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from sauceclient import SauceClient
 
+# Import os for use of environmental variables
+import os
+
 # Start Saucelabs connection
 sauce_url = "http://betweenbrain:e2007f7b-afd4-43a3-af7f-c5087c82199a@ondemand.saucelabs.com:80/wd/hub"
 
@@ -40,4 +43,4 @@ finally:
 
 # Report test results back to Sauce Labs
 sauce_client = SauceClient("betweenbrain", "e2007f7b-afd4-43a3-af7f-c5087c82199a")
-sauce_client.jobs.update_job(driver.session_id, passed=True, name=TRAVIS_PULL_REQUEST)
+sauce_client.jobs.update_job(driver.session_id, passed=True, name=os.environ['TRAVIS_PULL_REQUEST'])
