@@ -14,13 +14,11 @@ before_script:
 - sleep 3
 
 language: python
- python:
-  - '3.3'
-  - '2.7'
-  - '2.6'
-
+python:
+- '3.3'
+- '2.7'
+- '2.6'
 install:
-  - 'pip install selenium'
-  - 'pip install selenium pytest pytest-xdist sauceclient'
-
+- 'pip install selenium'
+- 'pip install selenium pytest pytest-xdist sauceclient'
 script: python test.py
