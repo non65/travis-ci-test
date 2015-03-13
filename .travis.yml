@@ -20,5 +20,4 @@ python:
 - '2.6'
 install:
 - 'pip install selenium'
-- 'pip install selenium pytest pytest-xdist sauceclient'
 script: python test.py
