@@ -18,6 +18,21 @@ driver = webdriver.Remote(desired_capabilities=desired_capabilities,
 driver.implicitly_wait(10)
 # End Saucelabs
 
-driver.get('http://google.com')
-assert "Google" in driver.title
-driver.quit()
+# Navigate to http://espn.go.com/
+driver.get("http://espn.go.com/")
+
+# Find the NFL > Scores link
+inputElement = driver.find_element_by_name("&lpos=sitenavdefault&lid=sitenav_nfl")
+
+# Click the found link
+inputElement.click()
+
+try:
+    # we have to wait for the page to refresh, the last thing that seems to be updated is the title
+    WebDriverWait(driver, 10).until(EC.title_contains("NFL"))
+
+    # Verify the page title
+    assert driver.title == 'NFL Football Teams, Scores, Stats, News, Standings, Rumors - National Football League - ESPN'
+
+finally:
+    driver.quit()
