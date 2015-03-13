@@ -1,24 +1,13 @@
-env:
-  global:
-    - secure: W+tWWCZa0+8m2jBq1mW9NXyYevnWSNcuq0FQYGW51dPu3QBf5ApnX7mkqJmofmg24OM79Y4Xl8c56DDLqCR7I6Ft1u61snAOZG7i3HcLjytHU/cNZtVKjPvLdYn2dCg2qP7cARTFsCmFg8f4S+uaHC7GvIzjEyTUbJKWKbJuzlM=
-    - secure: D2PJgZXWsI7QxpxEG8n9DR1yiVt0L3ea5WgSnVpqSLt7pavOxDZrVMo2tHM717cEB4z3JLCzaY5k2tBZONdCQw5UY6fMhqeaUEsrvo9Pg/ggspsmjyhDizq5ONrjVX0rlV6Wh0zWDaXE6zuvSRNxZiukuuBFzD6JO2RMcryxyxc=
-
-addons:
-  sauce_connect: true
-
-before_script:
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- sleep 3
-- rackup
-- sleep 3
-
 language: python
 python:
-- '3.3'
-- '2.7'
-- '2.6'
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+  - "nightly"
+# command to install dependencies
 install:
-- 'pip install selenium'
-- 'pip install selenium pytest pytest-xdist sauceclient'
-script: test.py
+  - "pip install selenium"
+# command to run tests
+script: nosetests
