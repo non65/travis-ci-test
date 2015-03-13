@@ -3,6 +3,8 @@
 Simple POC for integrating a Python Selenium test, to be run at Sauce Labs, using Travis CS.
 
 ### Important links to note:
+[Getting Started - Travis CI](http://docs.travis-ci.com/user/getting-started/)
+
 [Getting started - Sauce Labs](https://docs.saucelabs.com/ci-integrations/travis-ci/#adding-credentials-for-a-public-github-repo) provides a simple tool for creating encrypted authentication details for `.travis.yml`. For example as:
  
  ````
@@ -34,6 +36,8 @@ driver.implicitly_wait(10)
  ````
 
 ### Notes
+* `SauceClient` does not work with Python version v3.3.
+
 * Lint your `.travis.yml` - installs as a Ruby Gem `$ sudo gem install travis-lint`
 
 * For some reason, having three version of Python listed in `.travis.yml` caused `Response: {"error": "Too many active tunnels: 5; allowed: 5"}` . This might simply be a Travis bug with it not closing open tunnels in a timely manner. It now works with three versions listed again.
