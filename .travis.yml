@@ -1,23 +1,24 @@
+env:
+  global:
+    - secure: W+tWWCZa0+8m2jBq1mW9NXyYevnWSNcuq0FQYGW51dPu3QBf5ApnX7mkqJmofmg24OM79Y4Xl8c56DDLqCR7I6Ft1u61snAOZG7i3HcLjytHU/cNZtVKjPvLdYn2dCg2qP7cARTFsCmFg8f4S+uaHC7GvIzjEyTUbJKWKbJuzlM=
+    - secure: D2PJgZXWsI7QxpxEG8n9DR1yiVt0L3ea5WgSnVpqSLt7pavOxDZrVMo2tHM717cEB4z3JLCzaY5k2tBZONdCQw5UY6fMhqeaUEsrvo9Pg/ggspsmjyhDizq5ONrjVX0rlV6Wh0zWDaXE6zuvSRNxZiukuuBFzD6JO2RMcryxyxc=
+
 addons:
-  sauce_connect:
-    username:
-      secure: "oGyvxH9edhQ3RqKZpG1SAMAoLmXtB2M2who7jrpAd193OuvyL2NXfnqCCUgITDPDYgfT2Wa24bHfpl2Nfkvz1R9KTBQ6HcTY+sK+DxTE0YU2T3/izvfUixiwnKmz5vxrxIG49PnswRzJDId1MJRjLSkRX5oY0XeMd8+AHDt4tFQ="
-    access_key:
-      secure: "N5cRm0UQdHtJBhnA0zehPcB4Ql3JV90rhz+8asygXexIIbivTPLaMfnBMisttsq6vqJlqC/B6b6Z6v8njUF/5hIpYaVBv+8eR+jEhb1+maqagRmPWo+aPQbTEgMQ9+7okkh5IH+HmA1u26F+DftIRkN1Gjr22NGZYvYEHgYx32s="
+  sauce_connect: true
 
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
-  - rackup  # start a Web server
-  - sleep 3 # give Web server some time to bind to sockets, etc
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- sleep 3
+- rackup
+- sleep 3
 
 language: python
 python:
-  - "3.3"
-  - "2.7"
-  - "2.6"
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: "pip install selenium"
-# command to run tests, e.g. python setup.py test
-script:  "test.py"
+- '3.3'
+- '2.7'
+- '2.6'
+install:
+- 'pip install selenium'
+- 'pip install selenium pytest pytest-xdist sauceclient'
+script: test.py
