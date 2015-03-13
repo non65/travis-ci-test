@@ -13,4 +13,5 @@ python:
 - '2.6'
 install:
 - 'pip install selenium'
+- 'pip install sauceclient'
 script: python test.py
