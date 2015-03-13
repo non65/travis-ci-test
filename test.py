@@ -4,7 +4,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Create a new instance of the Firefox driver
+# Start Saucelabs connection
 sauce_url = "http://betweenbrain:e2007f7b-afd4-43a3-af7f-c5087c82199a@ondemand.saucelabs.com:80/wd/hub"
 
 desired_capabilities = {
@@ -16,7 +16,7 @@ desired_capabilities = {
 driver = webdriver.Remote(desired_capabilities=desired_capabilities,
                           command_executor=sauce_url)
 driver.implicitly_wait(10)
-# End Saucelabs
+# End Saucelabs connection
 
 # Navigate to http://espn.go.com/
 driver.get("http://espn.go.com/")
