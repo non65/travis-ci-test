@@ -8,7 +8,9 @@ addons:
 
 language: python
 python:
+- '3.3'
 - '2.7'
+- '2.6'
 install:
 - 'pip install selenium'
 script: python test.py
