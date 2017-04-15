@@ -2,7 +2,7 @@ language: python
 python:
 - '2.7'
 addons:
-  firefox: "49.0"
+  firefox: "47.0"
 install:
 - 'pip install selenium'
 script: python test.py
